@@ -1,0 +1,173 @@
+<!DO<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Personal Website</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Welcome to Fave's Personal Website!</h1>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="index.html">HOME</a></li>
+            <li class="dropdown">
+                <a href="#" class="dropbtn">ABOUT</a>
+                <div class="dropdown-content">
+                    <a href="skills.html">Skills I'm Developing</a>
+                    <a href="goals.html">My Goals as a Student</a>
+                    <a href="funfacts.html">Fun Facts About Me</a>
+                </div>
+            </li>
+            <li><a href="gallery.html">GALLERY</a></li>
+            <li><a href="contact.html">CONTACT</a></li>
+            
+            <li>
+                <a href="#" class="logout-button" onclick="confirmLogout()">LOG OUT</a>
+            </li>
+        </ul>
+    </nav>
+    
+    <section id="section2">
+        </section>
+    
+    <section id="drop">
+        <h2>Want To Know About Me?</h2>
+        <p>Welcome to my personal website. This website can tell you everything about me. </p>
+        <div class="funfact-container">
+            <div class="funfact-card">
+                <div class="funfact-inner">
+                    <div class="funfact-front">
+                        <p>Favorite Sport?</p>
+                    </div>
+                    <div class="funfact-back">
+                        <p>Volleyball</p>
+                    </div>
+                </div>
+            </div>
+            <div class="funfact-card">
+                <div class="funfact-inner">
+                    <div class="funfact-front">
+                        <p>Music Vibe?</p>
+                    </div>
+                    <div class="funfact-back">
+                        <p>One Direction songs</p>
+                    </div>
+                </div>
+            </div>
+            <div class="funfact-card">
+                <div class="funfact-inner">
+                    <div class="funfact-front">
+                        <p>Fave Time of the Day </p>
+                    </div>
+                    <div class="funfact-back">
+                        <p>Sunset</p>
+                    </div>
+                </div>
+            </div>
+            <div class="funfact-card">
+                <div class="funfact-inner">
+                    <div class="funfact-front">
+                        <p>My Fave Food? </p>
+                    </div>
+                    <div class="funfact-back">
+                        <p>Sisig </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="see-more-container">
+            <a href="funfacts.html" class="see-more-button" style="background-color: #0066CC;">My funfacts!</a>
+        </div>
+    </section>
+    
+    <div class="container">
+        <div class="image-section">
+            <img src="fave2.jpg" alt="Fave's Image">
+        </div>
+        <div class="quote-section">
+            <h1>Hi, I'm Fave!</h1>
+            <p>As a Information Technology student we are required to make a website not just to learn how to make it but also understand the programming language HTML . I'm very excited to introduce my personal website to you!. This website shows you who I am and to know me better!</p>
+            <blockquote>
+                "Anyone who has never made a mistake has never tried anything new."
+            </blockquote>
+        </div>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 Glenwyle Fave C. Francisco. All rights reserved.</p>
+    </footer>
+    <div class="footer-divider"></div> <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+        <span class="close" onclick="event.stopPropagation(); closeLightbox()">&times;</span>
+        <img class="lightbox-content" id="lightboxImage" src="">
+    </div>
+    
+    <script>
+        // --- Lightbox Functions ---
+        function openLightbox(imageSrc) {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImage = document.getElementById('lightboxImage');
+            lightboxImage.src = imageSrc;
+            lightbox.style.display = 'block';
+            
+            // Hide header and nav
+            document.querySelector('header').style.display = 'none';
+            document.querySelector('nav').style.display = 'none';
+        }
+        
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.style.display = 'none';
+            
+            // Show header and nav
+            document.querySelector('header').style.display = 'block';
+            document.querySelector('nav').style.display = 'flex'; 
+        }
+
+        // --- Dropdown/DOM Content Listener ---
+        document.addEventListener('DOMContentLoaded', function () {
+            const dropdowns = document.querySelectorAll('.dropdown');
+            dropdowns.forEach(dropdown => {
+                const dropbtn = dropdown.querySelector('.dropbtn');
+                const dropdownContent = dropdown.querySelector('.dropdown-content');
+
+                dropbtn.addEventListener('click', function(event) {
+                    event.preventDefault(); 
+                    dropdownContent.style.display = dropdownContent.style.display === 'block' ? 'none' : 'block';
+                });
+            });
+
+            // Close dropdown if clicking outside of it
+            window.addEventListener('click', function (event) {
+                if (!event.target.matches('.dropbtn')) {
+                    document.querySelectorAll('.dropdown-content').forEach(content => {
+                        if (content.style.display === 'block') {
+                            content.style.display = 'none';
+                        }
+                    });
+                }
+            });
+        });
+
+        // --- FIXED LOGOUT FUNCTION ---
+        function confirmLogout() {
+            // Show a confirmation message to the user
+            const userConfirmed = confirm("Are you sure you want to log out?");
+
+            // If the user confirms, proceed with logging out
+            if (userConfirmed) {
+                // 1. Clear any local user data (Crucial step for client-side logout)
+                localStorage.removeItem('isLoggedIn'); 
+                // Remove other relevant keys if used (e.g., localStorage.removeItem('authToken');)
+                
+                // 2. Redirect to the login page
+                window.location.href = 'login.html'; // Change 'login.html' to your actual login/landing page
+            }
+        }
+    </script>
+</body>
+</html>

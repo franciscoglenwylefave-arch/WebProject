@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gallery - Personal Website</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+<h1>Welcome to Fave's Personal Website!</h1>
+</header>
+<nav>
+<ul>
+<li><a href="index.html">HOME</a></li>
+<li class="dropdown">
+<a href="#" class="dropbtn">ABOUT</a>
+<div class="dropdown-content">
+<a href="skills.html">Skills I'm Developing</a>
+<a href="goals.html">My Goals as a Student</a>
+<a href="funfacts.html">Fun Facts About Me</a>
+</div>
+</li>
+<li><a href="gallery.html">GALLERY</a></li>
+<li><a href="contact.html">CONTACT</a></li>
+<li>
+    <a href="#" class="logout-button" onclick="confirmLogout()">LOG OUT</a>
+</li>
+</ul>
+</nav>
+<section id="section2"></section>
+<section id="gallery">
+<h2 style="background-color: #0066CC;">Gallery</h2>
+<p style="text-align: center;">Check out some of my images that defines who I am.</p>
+<div class="gallery"> 
+    <div class="gallery-item">
+        <img src="fave10.jpg" alt="Project Image 1" class="thumbnail" onclick="showImage(0)"> 
+        <p class="image-description">This one of my hobby, chess.Chess is a battle of mind and techniques that helps you for solving problem situation and critical thinking.</p>
+    </div>
+    <div class="gallery-item">
+        <img src="fave11.jpg" alt="Project Image 2" class="thumbnail" onclick="showImage(1)">
+        <p class="image-description">This is me playing table tennis. This one of my favorite sport since highschool days.</p>
+    </div>
+    <div class="gallery-item">
+        <img src="fave6.jpg" alt="Project Image 3" class="thumbnail" onclick="showImage(2)">
+        <p class="image-description">Playing volleyball is one of my stress reliever. Because of volleyball I met a lot of person and I'm really having a great time playing it. </p>
+    </div>
+    <div class="gallery-item">
+        <img src="fave13.jpg" alt="Project Image 3" class="thumbnail" onclick="showImage(3)">
+        <p class="image-description">Taking picture of myself to boost my confidence.</p>
+    </div>
+    <div class="gallery-item">
+        <img src="fave12.jpg" alt="Project Image 3" class="thumbnail" onclick="showImage(4)">
+        <p class="image-description">When it rains I think it's a perfect time to take a swim in the shore.It calms my mind and so relaxing</p>
+    </div>
+    <div class="gallery-item">
+        <img src="fave15.jpg" alt="Project Image 3" class="thumbnail" onclick="showImage(5)">
+        <p class="image-description">Joining pageant is a core memory. This is one of my clicks during pictorial of Datu nga Manugpangatas it Patuyaw it Sebaste.</p>
+    </div>
+</div>
+<div id="lightbox" class="lightbox">
+<span class="close" onclick="closeLightbox()">&times;</span>
+<img class="lightbox-content" id="lightboxImage" src="">
+<a class="prev" onclick="changeImage(-1)">&#10094;</a>
+<a class="next" onclick="changeImage(1)">&#10095;</a>
+</div>
+</section>
+
+<script>
+let currentImageIndex = 0;
+const images = document.querySelectorAll('.thumbnail'); // Get all the gallery images
+
+// --- Lightbox Functions ---
+function openLightbox() {
+    document.getElementById('lightbox').style.display = 'block';
+}
+
+function closeLightbox() {
+    document.getElementById('lightbox').style.display = 'none';
+}
+
+function showImage(index) {
+    currentImageIndex = index; // Update the current image index
+    // Check if the lightbox is closed, and open it before showing the image
+    if (document.getElementById('lightbox').style.display !== 'block') {
+        openLightbox();
+    }
+    document.getElementById('lightboxImage').src = images[currentImageIndex].src;
+}
+
+function changeImage(direction) {
+    currentImageIndex += direction;
+    // Wrap around when at the start or end of the images
+    if (currentImageIndex < 0) {
+        currentImageIndex = images.length - 1;
+    } else if (currentImageIndex >= images.length) {
+        currentImageIndex = 0;
+    }
+    // Show the new image
+    showImage(currentImageIndex);
+}
+
+// Set each thumbnail to open the lightbox with its corresponding image
+images.forEach((img, index) => {
+    img.addEventListener('click', () => showImage(index));
+});
+
+
+// --- FIXED LOGOUT FUNCTION ---
+function confirmLogout() {
+    // Show a confirmation message
+    const userConfirmed = confirm("Are you sure you want to log out?");
+
+    // If the user confirms:
+    if (userConfirmed) {
+        // 1. Clear any local user data (Crucial for client-side logout)
+        localStorage.removeItem('isLoggedIn'); 
+        
+        // 2. Redirect to the login page
+        window.location.href = 'login.html'; // Adjust 'login.html' if needed
+    } 
+    // If the user cancels, the function simply exits.
+}
+</script>
+
+<footer>
+<p>&copy; 2025 Glenwyle Fave C. Francisco. All rights reserved.</p>
+</footer>
+<div class="footer-divider"></div>
+</body>
+</html>

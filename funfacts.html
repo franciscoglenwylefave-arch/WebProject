@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fun Facts About Me</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+<h1>Welcome to Fave's Personal Website!</h1>
+</header>
+<nav>
+<ul>
+<li><a href="index.html">HOME</a></li>
+<li class="dropdown">
+<a href="#" class="dropbtn">ABOUT</a>
+<div class="dropdown-content">
+<a href="skills.html">Skills I'm Developing</a>
+<a href="goals.html">My Goals as a Student</a>
+<a href="funfacts.html">Want to know Me More?</a>
+</div>
+</li>
+<li><a href="gallery.html">GALLERY</a></li>
+<li><a href="contact.html">CONTACT</a></li>
+<li><a href="#" class="logout-button" onclick="confirmLogout()">LOG OUT</a>
+</li>
+</ul>
+</nav>
+<section id="section2"></section>
+<section id="drop">
+<h2>Funfacts About Myself</h2>
+<p>Explore some fascinating and surprising facts about the complex machine that is the human body!</p>
+<div class="funfact-container">
+    <div class="funfact-card">
+        <div class="funfact-inner">
+            <div class="funfact-front">
+                <p>Poopy time️</p>
+            </div>
+            <div class="funfact-back">
+                <p>A fast metabolism really an issue for me.</p>
+            </div>
+        </div>
+    </div>
+    <div class="funfact-card">
+        <div class="funfact-inner">
+            <div class="funfact-front">
+                <p>Mr.Hairy</p>
+            </div>
+            <div class="funfact-back">
+                <p>I have a lot of terminal hair and I'm not happy with it.</p>
+            </div>
+        </div>
+    </div>
+    <div class="funfact-card">
+        <div class="funfact-inner">
+            <div class="funfact-front">
+                <p>I have a mythological pet.</p>
+            </div>
+            <div class="funfact-back">
+                <p>A dragon girlfriend.</p>
+            </div>
+        </div>
+    </div>
+    <div class="funfact-card">
+        <div class="funfact-inner">
+            <div class="funfact-front">
+                <p>Asymmetrical arm</p>
+            </div>
+            <div class="funfact-back">
+                <p>Because of it some people thinks im gay.</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="funfact-container">
+    <div class="funfact-card">
+        <div class="funfact-inner">
+            <div class="funfact-front">
+                <p>Sleepy deepy</p>
+            </div>
+            <div class="funfact-back">
+                <p>I always sleepy espcially in class time.</p>
+            </div>
+        </div>
+    </div>
+    <div class="funfact-card">
+        <div class="funfact-inner">
+            <div class="funfact-front">
+                <p>Owl</p>
+            </div>
+            <div class="funfact-back">
+                <p>I have a big eyes.</p>
+            </div>
+        </div>
+    </div>
+    <div class="funfact-card">
+        <div class="funfact-inner">
+            <div class="funfact-front">
+                <p>Sense of humor</p>
+            </div>
+            <div class="funfact-back">
+                <p>I'm always fooling around because of humor.</p>
+            </div>
+        </div>
+    </div>
+    <div class="funfact-card">
+        <div class="funfact-inner">
+            <div class="funfact-front">
+                <p>Blurry sight️</p>
+            </div>
+            <div class="funfact-back">
+                <p>I'm an near-sited person.</p>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+
+<script>
+// Logout function with confirmation (Kept as is)
+function confirmLogout() {
+    // Show a confirmation message to the user
+    const userConfirmed = confirm("Are you sure you want to log out?");
+
+    // If the user confirms, proceed with logging out
+    if (userConfirmed) {
+        // 1. Mark the user as logged out in localStorage (if used)
+        localStorage.removeItem('isLoggedIn'); // Or any other keys related to login credentials
+        
+        // 2. Redirect to the login page
+        window.location.href = 'login.html';
+    }
+    // If the user cancels, the function simply exits.
+}
+</script>
+
+<footer>
+<p>&copy; 2025 Glenwyle Fave C. Francisco. All rights reserved.</p>
+</footer>
+<div class="footer-divider"></div> </body>
+</html>

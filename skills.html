@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Skills I'm Developing</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+<h1>Welcome to Fave's Personal Website!</h1>
+</header>
+<nav>
+<ul>
+<li><a href="index.html">HOME</a></li>
+<li class="dropdown">
+<a href="#" class="dropbtn">ABOUT</a>
+<div class="dropdown-content">
+<a href="skills.html">Skills I'm Developing</a>
+<a href="goals.html">My Goals as a Student</a>
+<a href="funfacts.html">Fun Facts About Me</a>
+</div>
+</li>
+<li><a href="gallery.html">GALLERY</a></li>
+<li><a href="contact.html">CONTACT</a></li>
+<li>
+    <a href="#" class="logout-button" onclick="confirmLogout()">LOG OUT</a>
+</li>
+</ul>
+</nav>
+<section id="section2"></section>
+<section id="drop">
+<h2>Skills I'm Developing</h2>
+<p>As a student, I’m actively developing a diverse set of skills that reflect my passions in technology and beyond.</p>
+<section id="skills">
+<div class="tab">
+<button class="tablinks" onclick="openTab(event, 'IT')">Information Technology</button>
+<button class="tablinks" onclick="openTab(event, 'GraphicDesign')">Graphic Design</button>
+<button class="tablinks" onclick="openTab(event, 'PublicSpeaking')">Public Speaking</button>
+<button class="tablinks" onclick="openTab(event, 'ProblemSolving')">Problem Solving</button>
+</div>
+<div id="IT" class="tabcontent">
+<h3>Information Technology</h3>
+<ul>
+<li>Mastering front-end web development with <strong>HTML, CSS, and JavaScript</strong></li>
+<li>Learning <strong>responsive design</strong> to create user-friendly experiences across devices</li>
+<li> Creating modern and accessible web interfaces</li>
+</ul>
+</div>
+<div id="GraphicDesign" class="tabcontent" style="display:none;">
+<h3>Graphic Design</h3>
+<ul>
+<li>Exploring visual design with tools like <strong>Adobe Illustrator and Canva</strong></li>
+<li>Building skills in branding, layout, and digital illustration</li>
+<li> Combining design with web development for cohesive digital presence</li>
+</ul>
+</div>
+<div id="PublicSpeaking" class="tabcontent" style="display:none;">
+<h3>Public Speaking</h3>
+<ul>
+<li>Developing communication skills through workshops and presentations</li>
+<li>Practicing storytelling techniques to engage and inspire audiences</li>
+<li>Strengthening my ability to share ideas clearly and confidently </li>
+</ul>
+</div>
+<div id="ProblemSolving" class="tabcontent" style="display:none;">
+<h3>Problem Solving and Critical Thinking</h3>
+<ul>
+<li>Enhancing analytical skills through coding challenges and project-based learning</li>
+<li>Focusing on efficient solutions and optimizing workflows in web development</li>
+<li>Building a structured approach to tackling complex problems</li>
+</ul>
+</div>
+</section>
+</section>
+<footer>
+<p>&copy; 2025 Glenwyle Fave C. Francisco. All rights reserved.</p>
+</footer>
+<div class="footer-divider"></div> <script>
+// --- Tab Switching Logic ---
+function openTab(evt, tabName) {
+    const tabcontents = document.getElementsByClassName("tabcontent");
+    // Hide all tab content
+    for (let i = 0; i < tabcontents.length; i++) {
+        tabcontents[i].style.display = "none";
+    }
+    // Remove "active" class from all tab links
+    const tablinks = document.getElementsByClassName("tablinks");
+    for (let i = 0; i < tablinks.length; i++) {
+        tablinks[i].classList.remove("active");
+    }
+    // Show the current tab and set the button to active
+    document.getElementById(tabName).style.display = "block";
+    evt.currentTarget.classList.add("active");
+}
+
+// --- DOM Content Listener: Ensures the first tab is active on load ---
+document.addEventListener("DOMContentLoaded", function() {
+    document.querySelector('.tablinks').click(); // Simulates a click on the first tab
+});
+
+// --- FIXED LOGOUT FUNCTION ---
+function confirmLogout() {
+    // Show a confirmation message
+    const userConfirmed = confirm("Are you sure you want to log out?");
+
+    // If the user confirms:
+    if (userConfirmed) {
+        // 1. Clear any local user data (if used for client-side authentication)
+        localStorage.removeItem('isLoggedIn'); 
+        
+        // 2. Redirect to the login page
+        window.location.href = 'login.html'; // Adjust 'login.html' if your login page has a different name
+    } 
+    // If the user cancels, the function simply does nothing.
+}
+</script>
+</body>
+</html>
